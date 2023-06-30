@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Background Generator</title>
+  <style>
+    body
+   {
+      background-color: #fff;
+      text-align: center;
+    }
+   
+    .container {
+      margin-top: 10px;
+    }
+   
+    .color-picker {
+      margin-bottom: 10px;
+    }
+   
+    .preview {
+      width: 1200px;
+      height: 580px;
+      margin: 0 auto;
+      border: 1px solid #000;
+    }
+  </style>
+  <script>
+    function changeBackground() {
+      var color1 = document.getElementById("color1").value;
+      var color2 = document.getElementById("color2").value;
+      var direction = document.getElementById("direction").value;
+      var preview = document.getElementById("preview");
+     
+      preview.style.background = "linear-gradient(" + direction + ", " + color1 + ", " + color2 + ")";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Background Generator</h1>
+    <div class="color-picker">
+      Color 1: <input type="color" id="color1">
+      Color 2: <input type="color" id="color2">
+    </div>
+    <div>
+      Gradient Direction:
+      <select id="direction">
+        <option value="to right">Left to Right</option>
+        <option value="to left">Right to Left</option>
+        <option value="to top">Top to Bottom</option>
+        <option value="to bottom">Bottom to Top</option>
+      </select>
+    </div>
+    <button onclick="changeBackground()">Generate</button>
+    <div id="preview" class="preview"></div>
+  </div>
+</body>
+</html>
