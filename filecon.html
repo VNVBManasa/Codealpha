@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Converter</title>
+  <script>
+    function convertFile() {
+      var fileInput = document.getElementById("fileInput");
+      var file = fileInput.files[0];
+     
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var convertedText = convertToText(e.target.result);
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = convertedText;
+      };
+     
+      reader.readAsText(file);
+    }
+   
+    function convertToText(fileContent) {
+      // Perform the conversion logic here
+      // This is just a dummy example that simply reverses the content
+      return fileContent.split("").reverse().join("");
+    }
+  </script>
+</head>
+<body bgcolor=skyblue>
+  <h1>File Converter</h1>
+  <input type="file" id="fileInput">
+  <button onclick="convertFile()"><b>Convert</b></button>
+  <h2><b><i>Converted Content:</i></b></h2>
+  <div id="result"></div>
+</body>
+</html>
